@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#Get the file name from input
+filename="$1"
+
+#setting the $lineno to 0
+lineno=0
+
+#Looping through the csv file
+while read -r line
+do
+  #Add 1 to line number
+	((lineno++))
+  
+  #Assigning read line to $name variable
+	name="$line"
+  
+  #Using qrencode library to generate QR code
+	qrencode -s 50 -l L -o "$lineno".png "https://cipe.lk/check/$name"	 
+	
+  #Setting $filename variable for future use
+  filename="$lineno".png
+  
+  #Using image magic convert Label function to append a label name while replacing the original file
+	convert $filename -pointsize 150 -background White label:"$name" -gravity Center -append "$lineno".png
+  
+done < "$filename"
