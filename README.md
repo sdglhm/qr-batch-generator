@@ -4,4 +4,4 @@ This small bash helps us to generate Serial number appended QR codes for our pro
 
 Sample QR looks like this
 
-(https://github.com/sdglhm/qr-batch-generator/blob/master/2.png)
+![](https://github.com/sdglhm/qr-batch-generator/blob/master/2.png)
